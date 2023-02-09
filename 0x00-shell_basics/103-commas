@@ -1,0 +1,2 @@
+#!/bin/bash
+ls -U --quoting-style=shell-escape -1 | sed 's/ /\\ /g' | sort -f | awk 'NF && $0 !~ /^[.]/ {printf "%s,",$0} NF && $0 ~ /^[.]/ {printf "%s\n%s,",$0,$0} END {printf "\n"}'
